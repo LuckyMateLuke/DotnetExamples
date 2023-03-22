@@ -1,0 +1,1 @@
+dotnet ef database update --startup-project ..\LuckyMateLuke.Examples\LuckyMateLuke.Examples.csproj --context CustomDbContext

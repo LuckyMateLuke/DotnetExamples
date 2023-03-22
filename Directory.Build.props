@@ -1,0 +1,32 @@
+﻿<Project>
+	<PropertyGroup>
+		<!-- Documentation: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/errors-warnings -->
+		<!-- Bij bestaande projecten kan je er voor kiezen om de eerste twee op false te zetten. -->
+		<AnalysisLevel>latest</AnalysisLevel>
+		<ReportAnalyzer>true</ReportAnalyzer>
+		<AnalysisMode>Recommended</AnalysisMode>
+
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+		
+	</PropertyGroup>
+	<PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference
+            Include="SonarAnalyzer.CSharp"
+            Version="8.51.0.59060"
+            PrivateAssets="all"
+            Condition="$(MSBuildProjectExtension) == '.csproj'">
+		</PackageReference>
+		<PackageReference
+        Include="StyleCop.Analyzers"
+        Version="1.1.118"
+        PrivateAssets="all"
+        Condition="$(MSBuildProjectExtension) == '.csproj'">
+		</PackageReference>
+	</ItemGroup>
+</Project>
