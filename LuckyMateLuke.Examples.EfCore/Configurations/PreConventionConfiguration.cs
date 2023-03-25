@@ -1,4 +1,4 @@
-﻿using LuckyMateLuke.Examples.EfCore.Conversions;
+﻿using LuckyMateLuke.Examples.EfCore.Configurations.Conversions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 

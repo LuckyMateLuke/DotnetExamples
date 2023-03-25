@@ -1,6 +1,6 @@
 ﻿namespace LuckyMateLuke.Examples.EfCore.Entities;
 
-public class Group : BaseEntity
+public class Group : BaseEntity.BaseEntity
 {
     public string Name { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using LuckyMateLuke.Examples.EfCore.Entities;
+using LuckyMateLuke.Examples.EfCore.Entities.BaseEntity;
 using LuckyMateLuke.Examples.EfCore.ExtensionMethods;
 using LuckyMateLuke.Examples.EfCore.Projections;
 using Microsoft.EntityFrameworkCore;

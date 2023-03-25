@@ -13,12 +13,13 @@ public class Program
 // Add services to the container.
         builder.Services.AddRazorPages();
 
+        /*
         builder.Services.AddOptions<DatabaseConfig>()
-            .BindConfiguration("SlackApi") // 👈 Bind the SlackApi section
+            .BindConfiguration("DatabaseConfig") // 👈 Bind the databaseconfig section
             .ValidateDataAnnotations() // 👈 Enable validation
-            .ValidateOnStart(); // 👈 Validate on app start
+            .ValidateOnStart(); // 👈 Validate on app start*/
         
-        builder.Services.ConfigureSqlDatabase();
+        builder.ConfigureSqlDatabase();
 
         var app = builder.Build();
 

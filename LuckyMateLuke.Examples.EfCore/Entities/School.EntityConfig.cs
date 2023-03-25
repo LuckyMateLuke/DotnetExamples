@@ -13,5 +13,7 @@ public class SchoolEntityTypeConfiguration : IEntityTypeConfiguration<School>
             .HasMaxLength(100)
             .IsRequired();
 
+        builder.HasMany(e => e.Groups).WithOne();
+        builder.HasMany(e => e.Students).WithOne();
     }
 }

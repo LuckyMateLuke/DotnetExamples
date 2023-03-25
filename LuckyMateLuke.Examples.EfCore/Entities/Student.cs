@@ -1,6 +1,6 @@
 ﻿namespace LuckyMateLuke.Examples.EfCore.Entities;
 
-public class Student : BaseEntity
+public class Student : BaseEntity.BaseEntity
 {
     public string Name { get; set; }
     
@@ -8,31 +8,15 @@ public class Student : BaseEntity
 
     public bool IsActive { get; set; }
     
-    public IList<int> Grades { get; set; }
+    public List<int> Grades { get; set; }
 
     public Group Group { get; set; }
     
     public School School { get; set; }
     
-    public List<GroupProject> Projects { get; set; }
-}
-
-public class ParentStudent
-{
-    public int ParentId { get; set; }
-
-    public int StudentId { get; set; }
-
-    public Student Student { get; set; }
-
-    public Parent Parent { get; set;  }
-}
-
-public class Parent : BaseEntity
-{
-    public string Name { get; set; }
+    // Direct many to many mapping 
+    public List<GroupProject> GroupProjects { get; set; }
     
-    public int Age { get; set; }
-
-    public List<Student> Projects { get; set; }
+    // Indirect many-to-many mapping
+    public List<ParentStudent> Parents { get; set; }
 }

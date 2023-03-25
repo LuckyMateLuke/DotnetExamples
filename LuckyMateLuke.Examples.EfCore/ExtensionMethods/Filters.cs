@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using LuckyMateLuke.Examples.EfCore.Entities;
+using LuckyMateLuke.Examples.EfCore.Entities.BaseEntity;
 
 namespace LuckyMateLuke.Examples.EfCore.ExtensionMethods;
 

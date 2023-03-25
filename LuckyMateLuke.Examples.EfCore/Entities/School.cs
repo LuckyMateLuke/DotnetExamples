@@ -1,6 +1,8 @@
-﻿namespace LuckyMateLuke.Examples.EfCore.Entities;
+﻿using LuckyMateLuke.Examples.EfCore.Entities.BaseEntity;
 
-public class School : BaseEntity
+namespace LuckyMateLuke.Examples.EfCore.Entities;
+
+public class School : BaseEntity.BaseEntity
 {
     public School(DefaultInformation stdInfo)
         : base(stdInfo)
@@ -19,5 +21,5 @@ public class School : BaseEntity
 
     public List<Student> Students { get; set; }
     
-    public List<Student> Groups { get; set; }
+    public List<Group> Groups { get; set; }
 }

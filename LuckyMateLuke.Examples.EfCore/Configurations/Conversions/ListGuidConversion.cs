@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace LuckyMateLuke.Examples.EfCore.Conversions;
+namespace LuckyMateLuke.Examples.EfCore.Configurations.Conversions;
 
 public static class ListGuidConversion 
 {

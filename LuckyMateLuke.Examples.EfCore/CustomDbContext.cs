@@ -1,13 +1,10 @@
 ﻿using LuckyMateLuke.Examples.EfCore.Configurations;
 using LuckyMateLuke.Examples.EfCore.Entities;
+using LuckyMateLuke.Examples.EfCore.Entities.BaseEntity;
 using Microsoft.EntityFrameworkCore;
 
 namespace LuckyMateLuke.Examples.EfCore;
 
-// TOEVOEGEN
-// Bulk delete / update doen
-// Test toevoegen of Migration vergeten is
-// Concurrency https://learn.microsoft.com/en-us/ef/core/saving/concurrency?tabs=data-annotations
 public class CustomDbContext : DbContext
 {
     public CustomDbContext(DbContextOptions options)
