@@ -1,6 +1,8 @@
-﻿namespace LuckyMateLuke.Examples.EfCore.Entities;
+﻿using LuckyMateLuke.Examples.EfCore.Entities.BaseEntity;
 
-public class GroupProject : BaseEntity.BaseEntity
+namespace LuckyMateLuke.Examples.EfCore.Entities;
+
+public class GroupProject : GroupBase
 {
     public int Score { get; set; }
     

@@ -1,12 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LuckyMateLuke.Examples.EfCore.Entities.BaseEntity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LuckyMateLuke.Examples.EfCore.Entities;
 
-public class ParentEntityTypeConfiguration : IEntityTypeConfiguration<Parent>
+internal class ParentConfiguration : IEntityTypeConfiguration<Parent>
 {
     public void Configure(EntityTypeBuilder<Parent> builder)
     {
+        builder.ConfigureBaseEntity();
         builder
             .Property(b => b.Name)
             .HasMaxLength(100)

@@ -1,6 +1,8 @@
-﻿namespace LuckyMateLuke.Examples.EfCore.Entities;
+﻿using LuckyMateLuke.Examples.EfCore.Entities.BaseEntity;
 
-public class Student : BaseEntity.BaseEntity
+namespace LuckyMateLuke.Examples.EfCore.Entities;
+
+public class Student : StudentBase
 {
     public string Name { get; set; }
     

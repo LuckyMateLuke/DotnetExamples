@@ -9,6 +9,12 @@ public static class ModelBuilderConfiguration
     {
         // Should be done explicitly, could be done with:
         // modelBuilder.ApplyConfigurationsFromAssembly(typeof(BlogEntityTypeConfiguration).Assembly)
+        modelBuilder.ApplyConfiguration(new GroupEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new GroupProjectConfiguration());
+        modelBuilder.ApplyConfiguration(new ParentConfiguration());
+        modelBuilder.ApplyConfiguration(new SchoolConfiguration());
+        modelBuilder.ApplyConfiguration(new StudentConfiguration());
+        modelBuilder.ApplyConfiguration(new ParentStudentConfiguration());
         return modelBuilder;
     }
 }

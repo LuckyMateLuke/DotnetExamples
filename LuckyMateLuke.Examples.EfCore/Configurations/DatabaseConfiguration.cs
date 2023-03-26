@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Reflection;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.Migrations.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,8 +19,11 @@ public static class DatabaseConfiguration
         var connectionstring = config.GetConnectionString("MyExampleDatabase");
         builder.Services.AddDbContext<CustomDbContext>(
             options => options.UseSqlServer(
-                    connectionstring, 
-                    providerOptions => { providerOptions.EnableRetryOnFailure(); })
+                    connectionstring,
+                    providerOptions =>
+                    {
+                        providerOptions.EnableRetryOnFailure();
+                    })
                     .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
                     .ConfigureWarnings(warnings => warnings
                         .Throw(CoreEventId.FirstWithoutOrderByAndFilterWarning)

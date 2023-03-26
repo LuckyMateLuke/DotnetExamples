@@ -35,13 +35,13 @@ public static class Filters
     }
 
     public static IQueryable<T> FilterByGroup<T>(this IQueryable<T> query, DefaultIds ids)  
-        where T : BaseEntity
+        where T : GroupBase
     {
         return query.Where(x => x.GroupId == ids.groupId);
     }
     
-    public static IQueryable<T> FilterUserId<T>(this IQueryable<T> query, DefaultIds ids) 
-        where T : BaseEntity
+    public static IQueryable<T> FilterByStudent<T>(this IQueryable<T> query, DefaultIds ids) 
+        where T : Student
     {
         return query.Where(x => x.MetaData.CreatedBy == ids.userId);
     }
