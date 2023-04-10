@@ -20,5 +20,5 @@ public class Student : StudentBase
     public List<GroupProject> GroupProjects { get; set; }
     
     // Indirect many-to-many mapping
-    public List<ParentStudent> Parents { get; set; }
+    public List<Parent> Parents { get; set; }
 }

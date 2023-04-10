@@ -9,4 +9,6 @@ public class Group : GroupBase
     public School School { get; set; }
 
     public List<Student> Student { get; set; }
+    
+    public List<GroupProject> GroupProjects { get; set; }
 }

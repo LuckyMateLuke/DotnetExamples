@@ -8,44 +8,34 @@ using Microsoft.EntityFrameworkCore;
 namespace LuckyMateLuke.Examples.EfCore.Queries;
 
 // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq
-
-public class DefaultQueries
+public class ManyToMany
 {
     private readonly CustomDbContext _dbContext;
 
-    public DefaultQueries(CustomDbContext dbContext)
+    public ManyToMany(CustomDbContext dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public async Task<List<StudentIdWithName>> SimpleQueryWithHandyExtensions(DefaultIds ids, string nameFilter, bool? isActiveFilter)
+    public async Task<List<Student>> AllStudentsWithParents()
     {
-        // method syntax
-        var query = _dbContext
+        var students = _dbContext
             .Student
-            .FilterByGroup(ids)
-            .WhereIf(q => q.Name.Contains(nameFilter), !string.IsNullOrWhiteSpace(nameFilter))
-            .WhereIf(q => q.IsActive == isActiveFilter, isActiveFilter.HasValue)
-            .OrderById()
-            .Select(StudentIdWithName.Projection);
-        
-        return await query
-            .TagWithCallSite()
-            .ToListAsync();
+            .Include(x => x.Parents);
+
+        return await students.ToListAsync();
     }
     
     // if you'd like using the query syntax a extra join entity property should be added 
     // https://learn.microsoft.com/en-us/ef/core/modeling/relationships/many-to-many#many-to-many-with-navigations-to-and-from-join-entity
-    public async Task<List<Student>> GetStudentsWithoutParents() // Left join
+    public async Task<List<Student>> AllStudentsWithOrWithoutParents() // Left join
     {
-        var allStudents = _dbContext
+        var students = _dbContext
             .Student
             .Include(x => x.Parents)
             .DefaultIfEmpty();
 
-        return await allStudents
-            .TagWithCallSite()
-            .ToListAsync();
+        return await students.ToListAsync();
     }
     
     public async Task PairStudentWithParent()

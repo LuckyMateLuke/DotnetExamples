@@ -13,7 +13,10 @@ internal class ParentConfiguration : IEntityTypeConfiguration<Parent>
             .Property(b => b.Name)
             .HasMaxLength(100)
             .IsRequired();
-        
-        builder.HasMany(e => e.Children).WithOne(e => e.Parent).HasForeignKey(e => e.ParentId);
+
+        builder
+            .HasMany(e => e.Children)
+            .WithMany(e => e.Parents)
+            .UsingEntity<ParentStudent>();
     }
 }

@@ -15,9 +15,20 @@ internal class StudentConfiguration : IEntityTypeConfiguration<Student>
             .HasMaxLength(100)
             .IsRequired();
 
-        builder.HasQueryFilter(q => q.IsActive);
-        builder.Property(e => e.Grades).ApplyStringConversion();
-        builder.HasMany(e => e.Parents).WithOne(e => e.Student).HasForeignKey(e => e.StudentId);
-        builder.HasOne(e => e.School).WithMany(e => e.Students).HasForeignKey(e => e.StudentId);
+        builder
+            .HasQueryFilter(q => q.IsActive);
+        
+        builder
+            .Property(e => e.Grades)
+            .ApplyStringConversion();
+        builder
+            .HasMany(e => e.Parents)
+            .WithMany(e => e.Children)
+            .UsingEntity<ParentStudent>();
+        
+        builder
+            .HasOne(e => e.School)
+            .WithMany(e => e.Students)
+            .HasForeignKey(e => e.StudentId);
     }
 }

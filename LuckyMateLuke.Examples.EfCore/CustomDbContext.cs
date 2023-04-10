@@ -18,6 +18,10 @@ public class CustomDbContext : DbContext
     
     public DbSet<Student> Student { get; set; }
     
+    public DbSet<Parent> Parent { get; set; }
+    
+    public DbSet<ParentStudent> JoinParentStudent { get; set; }
+    
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         DoSomethingWithTheChanges();

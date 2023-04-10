@@ -14,7 +14,6 @@ public static class ModelBuilderConfiguration
         modelBuilder.ApplyConfiguration(new ParentConfiguration());
         modelBuilder.ApplyConfiguration(new SchoolConfiguration());
         modelBuilder.ApplyConfiguration(new StudentConfiguration());
-        modelBuilder.ApplyConfiguration(new ParentStudentConfiguration());
         return modelBuilder;
     }
 }

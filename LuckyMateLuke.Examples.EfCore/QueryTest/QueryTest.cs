@@ -18,12 +18,18 @@ public class QueryTest
     private ITestOutputHelper TestOutputHelper { get; }
 
     [Fact]
-    public async Task CheckQueryAsync()
+    public void CheckQuery()
     {
         var optionsBuilder = CreateBuilder();
         using var databaseContext = new CustomDbContext(optionsBuilder.Options);
 
-        await databaseContext.School.ToListAsync();
+        var query = databaseContext
+            .JoinParentStudent
+            .TagWithCallSite();
+
+        var str = query.ToQueryString();
+
+        Console.WriteLine(str);
 
         Assert.True(true);
     }
